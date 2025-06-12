@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ABC Games - Simple Games Collection</title>
+    <link rel="stylesheet" href="../../shared/styles/reset.css">
+    <link rel="stylesheet" href="../../shared/styles/theme.css">
+    <link rel="stylesheet" href="./home.css">
+</head>
+<body>
+    <div class="app">
+        <!-- Header -->
+        <header class="header">
+            <div class="container">
+                <div class="header__content">
+                    <h1 class="header__title">
+                        <span class="header__logo">🎮</span>
+                        ABC Games
+                    </h1>
+                    <p class="header__subtitle">Simple games to play and learn</p>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main">
+            <div class="container">
+                <section class="games-section">
+                    <h2 class="games-section__title text-center">Choose Your Game</h2>
+                    <div class="games-grid grid grid-3">
+                        <game-card
+                            title="Tic Tac Toe"
+                            description="Classic 3x3 grid game. Get three in a row to win!"
+                            href="../tic-tac-toe/index.html"
+                            color="primary"
+                            icon="⭕">
+                        </game-card>
+
+                        <game-card
+                            title="Five in Row"
+                            description="Strategic game on a 15x15 board. Get five in a row to win!"
+                            href="../five-in-row/index.html"
+                            color="secondary"
+                            icon="🔥">
+                        </game-card>
+
+                        <game-card
+                            title="Language Cards"
+                            description="Learn alphabets in English, Hebrew, and Russian!"
+                            href="../language-cards/index.html"
+                            color="accent"
+                            icon="📚">
+                        </game-card>
+                    </div>
+                </section>
+
+                <!-- Instructions Section -->
+                <section class="instructions-section">
+                    <div class="instructions card">
+                        <h3>How to Play</h3>
+                        <div class="instructions__grid grid grid-3">
+                            <div class="instruction">
+                                <div class="instruction__icon">🎯</div>
+                                <h4>Choose a Game</h4>
+                                <p>Click on any game card above to start playing</p>
+                            </div>
+                            <div class="instruction">
+                                <div class="instruction__icon">🎮</div>
+                                <h4>Play & Learn</h4>
+                                <p>Each game has simple rules and intuitive controls</p>
+                            </div>
+                            <div class="instruction">
+                                <div class="instruction__icon">🏆</div>
+                                <h4>Have Fun</h4>
+                                <p>Enjoy playing alone or challenge a friend!</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <p class="footer__text text-center">
+                    Built with ❤️ using TypeScript & CSS
+                </p>
+            </div>
+        </footer>
+    </div>
+
+    <script type="module" src="./home.ts"></script>
+</body>
+</html> 

@@ -1,0 +1,482 @@
+/* Language Cards Game Styles */
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header */
+.header {
+  background: linear-gradient(135deg, var(--color-accent) 0%, rgba(200, 230, 201, 0.8) 100%);
+  padding: var(--spacing-lg) 0;
+  border-bottom: 1px solid rgba(200, 230, 201, 0.3);
+}
+
+.header__content {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.back-link {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  color: var(--color-text);
+  text-decoration: none;
+  font-weight: 600;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--radius-md);
+  transition: all var(--transition-fast);
+}
+
+.back-link:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateX(-2px);
+}
+
+.back-link__icon {
+  font-size: var(--font-size-lg);
+}
+
+.game-title {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  color: var(--color-text);
+  font-size: var(--font-size-2xl);
+  font-weight: 700;
+  margin: 0;
+}
+
+.game-icon {
+  font-size: var(--font-size-2xl);
+}
+
+.spacer {
+  width: 80px;
+}
+
+/* Main Content */
+.main {
+  flex: 1;
+  padding: var(--spacing-xl) 0;
+}
+
+/* Game Info */
+.game-info {
+  margin-bottom: var(--spacing-xl);
+}
+
+.info-card {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(250, 250, 250, 0.95) 100%);
+  border: 1px solid rgba(200, 230, 201, 0.3);
+}
+
+.info-title {
+  color: var(--color-text);
+  margin-bottom: var(--spacing-sm);
+}
+
+.info-description {
+  color: var(--color-text-light);
+  font-size: var(--font-size-base);
+  margin: 0;
+}
+
+/* Languages Section */
+.languages-section {
+  margin: var(--spacing-xl) 0;
+}
+
+.languages-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--spacing-lg);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.language-column {
+  background: var(--color-card);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+  transition: all var(--transition-normal);
+}
+
+.language-column:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-2px);
+}
+
+/* Language Headers */
+.language-header {
+  padding: var(--spacing-lg);
+  text-align: center;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.8) 0%, rgba(250, 250, 250, 0.9) 100%);
+  border-bottom: 2px solid rgba(0, 0, 0, 0.05);
+}
+
+.language-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-sm);
+  color: var(--color-text);
+  font-size: var(--font-size-xl);
+  margin-bottom: var(--spacing-xs);
+}
+
+.language-icon {
+  font-size: var(--font-size-xl);
+}
+
+.language-subtitle {
+  color: var(--color-text-light);
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+}
+
+/* Specific Language Column Styles */
+.english-column .language-header {
+  background: linear-gradient(135deg, var(--color-primary) 0%, rgba(255, 179, 230, 0.8) 100%);
+}
+
+.hebrew-column .language-header {
+  background: linear-gradient(135deg, var(--color-secondary) 0%, rgba(179, 229, 252, 0.8) 100%);
+}
+
+.russian-column .language-header {
+  background: linear-gradient(135deg, var(--color-accent) 0%, rgba(200, 230, 201, 0.8) 100%);
+}
+
+/* Letters Container */
+.letters-container {
+  padding: var(--spacing-md);
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(50px, 1fr));
+  gap: var(--spacing-sm);
+  max-height: 500px;
+  overflow-y: auto;
+}
+
+/* Hebrew RTL Support */
+.hebrew-rtl {
+  direction: rtl;
+  text-align: right;
+}
+
+/* Letter Cards */
+.letter-card {
+  background: var(--color-background);
+  border: 2px solid transparent;
+  border-radius: var(--radius-md);
+  padding: var(--spacing-sm);
+  text-align: center;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  position: relative;
+  min-height: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.letter-card:hover {
+  border-color: var(--color-primary);
+  transform: scale(1.05);
+  box-shadow: var(--shadow-sm);
+}
+
+.letter-card.clicked {
+  animation: letter-bounce 0.3s ease-out;
+}
+
+.letter-main {
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: var(--spacing-xs);
+}
+
+.letter-phonetic {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-light);
+  font-style: italic;
+  opacity: 0;
+  transition: opacity var(--transition-normal);
+}
+
+.letter-phonetic.show {
+  opacity: 1;
+}
+
+/* Language-specific letter styling */
+.english-column .letter-card:hover {
+  border-color: var(--color-primary);
+  background: rgba(255, 179, 230, 0.1);
+}
+
+.hebrew-column .letter-card:hover {
+  border-color: var(--color-secondary);
+  background: rgba(179, 229, 252, 0.1);
+}
+
+.russian-column .letter-card:hover {
+  border-color: var(--color-accent);
+  background: rgba(200, 230, 201, 0.1);
+}
+
+/* Controls */
+.controls-section {
+  margin: var(--spacing-xl) 0;
+}
+
+.controls-card {
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(250, 250, 250, 0.95) 100%);
+  border: 1px solid rgba(200, 230, 201, 0.3);
+}
+
+.control-group {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.control-label {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  cursor: pointer;
+  font-weight: 500;
+  color: var(--color-text);
+}
+
+.control-checkbox {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--color-accent);
+}
+
+.control-text {
+  font-size: var(--font-size-sm);
+}
+
+.btn-icon {
+  margin-right: var(--spacing-xs);
+}
+
+/* Instructions */
+.instructions {
+  margin: var(--spacing-xl) 0;
+}
+
+.instructions-card {
+  max-width: 800px;
+  margin: 0 auto;
+  background: linear-gradient(135deg, rgba(200, 230, 201, 0.1) 0%, rgba(200, 230, 201, 0.05) 100%);
+  border: 1px solid rgba(200, 230, 201, 0.3);
+}
+
+.instructions h3 {
+  color: var(--color-text);
+  margin-bottom: var(--spacing-lg);
+  text-align: center;
+}
+
+.alphabet-detail {
+  text-align: center;
+}
+
+.alphabet-detail h4 {
+  color: var(--color-text);
+  font-size: var(--font-size-lg);
+  margin-bottom: var(--spacing-sm);
+}
+
+.alphabet-detail ul {
+  text-align: left;
+  margin: 0;
+}
+
+.alphabet-detail li {
+  color: var(--color-text-light);
+  font-size: var(--font-size-sm);
+  padding: var(--spacing-xs) 0;
+  position: relative;
+  padding-left: var(--spacing-md);
+}
+
+.alphabet-detail li::before {
+  content: "•";
+  color: var(--color-accent);
+  position: absolute;
+  left: 0;
+  font-weight: bold;
+}
+
+/* Footer */
+.footer {
+  background-color: rgba(200, 230, 201, 0.1);
+  padding: var(--spacing-lg) 0;
+  margin-top: auto;
+}
+
+.footer-link {
+  color: var(--color-text-light);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color var(--transition-fast);
+}
+
+.footer-link:hover {
+  color: var(--color-accent);
+}
+
+/* Animations */
+@keyframes letter-bounce {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.15);
+  }
+}
+
+@keyframes slideInFromBottom {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.letter-card {
+  animation: slideInFromBottom 0.4s ease-out;
+}
+
+/* Stagger animation for letter cards */
+.letter-card:nth-child(1) { animation-delay: 0.05s; }
+.letter-card:nth-child(2) { animation-delay: 0.1s; }
+.letter-card:nth-child(3) { animation-delay: 0.15s; }
+.letter-card:nth-child(4) { animation-delay: 0.2s; }
+.letter-card:nth-child(5) { animation-delay: 0.25s; }
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .languages-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+  }
+  
+  .language-column {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  .letters-container {
+    grid-template-columns: repeat(auto-fill, minmax(45px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .header__content {
+    padding: 0 var(--spacing-sm);
+  }
+  
+  .game-title {
+    font-size: var(--font-size-xl);
+  }
+  
+  .back-link__text {
+    display: none;
+  }
+  
+  .spacer {
+    width: 40px;
+  }
+  
+  .controls-card {
+    flex-direction: column;
+    gap: var(--spacing-md);
+    text-align: center;
+  }
+  
+  .control-group {
+    flex-direction: column;
+    gap: var(--spacing-xs);
+  }
+  
+  .alphabet-info {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+  }
+  
+  .letters-container {
+    grid-template-columns: repeat(auto-fill, minmax(40px, 1fr));
+    gap: var(--spacing-xs);
+  }
+  
+  .letter-card {
+    min-height: 50px;
+    padding: var(--spacing-xs);
+  }
+  
+  .letter-main {
+    font-size: var(--font-size-lg);
+  }
+}
+
+@media (max-width: 480px) {
+  .letters-container {
+    grid-template-columns: repeat(auto-fill, minmax(35px, 1fr));
+  }
+  
+  .letter-main {
+    font-size: var(--font-size-base);
+  }
+  
+  .letter-phonetic {
+    font-size: 10px;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .letter-card {
+    border: 2px solid var(--color-text);
+  }
+  
+  .letter-card:hover {
+    background: var(--color-text);
+    color: var(--color-background);
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .letter-card {
+    animation: none;
+  }
+  
+  .letter-card:hover {
+    transform: none;
+  }
+  
+  .language-column:hover {
+    transform: none;
+  }
+} 
