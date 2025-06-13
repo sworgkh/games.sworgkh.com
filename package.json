@@ -6,8 +6,10 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview",
-    "clean": "rm -rf dist"
+    "preview": "vite preview --outDir dist",
+    "clean": "rm -rf dist",
+    "serve": "vite preview --outDir dist",
+    "deploy": "npm run clean && npm run build"
   },
   "devDependencies": {
     "@types/node": "^20.0.0",
