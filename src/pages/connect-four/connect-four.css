@@ -9,12 +9,12 @@
 /* Header */
 .header {
   background: linear-gradient(135deg, var(--color-warning) 0%, rgba(255, 204, 188, 0.8) 100%);
-  padding: var(--spacing-lg) 0;
+  padding: var(--spacing-xs) 0;
   border-bottom: 1px solid rgba(255, 204, 188, 0.3);
 }
 
 .header__content {
-  max-width: 900px;
+  max-width: 1400px;
   margin: 0 auto;
 }
 
@@ -176,20 +176,20 @@
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   gap: 4px;
-  max-width: 420px;
+  max-width: 800px;
   width: 100%;
   padding: 0 var(--spacing-sm);
 }
 
 .drop-button {
   background: var(--color-card);
-  border: 2px solid var(--color-warning);
+  border: 2px solid var(--color-border);
   border-radius: var(--radius-md) var(--radius-md) 0 0;
   padding: var(--spacing-sm);
   cursor: pointer;
   transition: all var(--transition-fast);
   position: relative;
-  height: 50px;
+  height: 80px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -197,10 +197,28 @@
   color: var(--color-text);
 }
 
+/* Player-colored drop buttons */
+.drop-button.red {
+  border-color: #ff6b6b;
+  background: rgba(255, 107, 107, 0.1);
+}
+
+.drop-button.yellow {
+  border-color: #ffd43b;
+  background: rgba(255, 212, 59, 0.1);
+}
+
 .drop-button:hover {
-  background: var(--color-warning);
   transform: translateY(-2px);
   box-shadow: var(--shadow-md);
+}
+
+.drop-button.red:hover {
+  background: rgba(255, 107, 107, 0.2);
+}
+
+.drop-button.yellow:hover {
+  background: rgba(255, 212, 59, 0.2);
 }
 
 .drop-button:disabled {
@@ -213,6 +231,36 @@
 .drop-button.column-full {
   background: #ffcccb;
   border-color: #ff6b6b;
+}
+
+/* Coin preview for hover effect */
+.coin-preview {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 1;
+  
+  transition: opacity var(--transition-fast);
+}
+
+.drop-button:hover .coin-preview {
+  opacity: 1;
+}
+
+.coin-preview.red {
+  background: linear-gradient(135deg, #ff6b6b 0%, #ee5a52 50%, #c92a2a 100%);
+  border: 2px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.coin-preview.yellow {
+  background: linear-gradient(135deg, #ffd43b 0%, #fab005 50%, #f59f00 100%);
+  border: 2px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 /* Column numbers */
@@ -238,7 +286,7 @@
 
 /* Game Board */
 .game-board-section {
-  margin-bottom: var(--spacing-lg);
+  margin-bottom: var(--spacing-xs);
   display: flex;
   justify-content: center;
 }
@@ -249,7 +297,7 @@
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-lg);
   border: 4px solid #364fc7;
-  max-width: 500px;
+  max-width: 800px;
   width: 90%;
   margin: 0 auto;
 }

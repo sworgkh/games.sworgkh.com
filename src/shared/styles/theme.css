@@ -97,7 +97,7 @@ p {
 /* Common Components */
 .container {
   width: 100%;
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
   padding: 0 var(--game-container-margin);
 }
@@ -293,7 +293,6 @@ p {
 /* Screen rotation support */
 @media screen and (orientation: landscape) {
   .game-board-section {
-    height: 70vh;
     display: flex;
     align-items: center;
     justify-content: center;

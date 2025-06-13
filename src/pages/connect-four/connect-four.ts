@@ -137,11 +137,28 @@ class ConnectFourGame {
       // Add column number as a separate element inside the button
       const columnNumber = document.createElement('span');
       columnNumber.className = 'column-number';
-      columnNumber.textContent = (col + 1).toString();
-      dropButton.appendChild(columnNumber);
+      // columnNumber.textContent = (col + 1).toString();
+      // dropButton.appendChild(columnNumber);
+      
+      // Add coin preview element
+      const coinPreview = document.createElement('div');
+      coinPreview.className = 'coin-preview';
+      dropButton.appendChild(coinPreview);
       
       // Set the button's aria label
       dropButton.setAttribute('aria-label', `Drop coin in column ${col + 1}`);
+      
+      // Add hover effect
+      addEventListener(dropButton, 'mouseenter', () => {
+        if (this.gameState === 'playing') {
+          addClass(coinPreview, this.currentPlayer);
+        }
+      });
+      
+      addEventListener(dropButton, 'mouseleave', () => {
+        removeClass(coinPreview, 'red');
+        removeClass(coinPreview, 'yellow');
+      });
       
       addEventListener(dropButton, 'click', () => this.handleColumnClick(col));
       
@@ -540,6 +557,8 @@ class ConnectFourGame {
     dropButtons.forEach(button => {
       (button as HTMLButtonElement).disabled = false;
       removeClass(button, 'column-full');
+      removeClass(button, 'red');
+      removeClass(button, 'yellow');
     });
     
     this.undoButton.disabled = true;
@@ -554,7 +573,7 @@ class ConnectFourGame {
     dropButtons.forEach((button, index) => {
       const columnNumber = button.querySelector('.column-number') as HTMLElement;
       if (columnNumber) {
-        columnNumber.textContent = this.options.showColumnNumbers ? (index + 1).toString() : '↓';
+        columnNumber.textContent = this.options.showColumnNumbers ? (index + 1).toString() : '';
         columnNumber.style.display = this.options.showColumnNumbers ? 'block' : 'none';
       }
     });
@@ -573,6 +592,19 @@ class ConnectFourGame {
     if (coinElement) {
       coinElement.className = `coin ${this.currentPlayer}`;
     }
+    
+    // Update drop buttons to match current player color
+    const dropButtons = selectAllElements('.drop-button', this.dropZone);
+    dropButtons.forEach(button => {
+      // Remove any previous player classes
+      removeClass(button, 'red');
+      removeClass(button, 'yellow');
+      
+      // Add current player class if game is still playing
+      if (this.gameState === 'playing') {
+        addClass(button, this.currentPlayer);
+      }
+    });
     
     // Update move count
     this.moveCountElement.textContent = this.moveCount.toString();
@@ -636,7 +668,7 @@ class ConnectFourGame {
       dropButtons.forEach((button, index) => {
         const columnNumber = button.querySelector('.column-number') as HTMLElement;
         if (columnNumber) {
-          columnNumber.textContent = this.options.showColumnNumbers ? (index + 1).toString() : '↓';
+          columnNumber.textContent = this.options.showColumnNumbers ? (index + 1).toString() : '';
           columnNumber.style.display = this.options.showColumnNumbers ? 'block' : 'none';
         }
       });
