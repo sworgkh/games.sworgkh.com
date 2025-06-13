@@ -174,7 +174,7 @@ class TicTacToeGame {
     
     this.highlightWinningCells();
     this.updateUI();
-    this.celebrateWin(winner);
+    this.celebrateWin();
   }
 
   private handleDraw(): void {
@@ -217,7 +217,7 @@ class TicTacToeGame {
     }
   }
 
-  private celebrateWin(winner: string): void {
+  private celebrateWin(): void {
     // Add celebration animation
     const gameContainer = selectElement('.app');
     if (gameContainer) {

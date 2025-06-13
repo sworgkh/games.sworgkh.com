@@ -287,7 +287,7 @@ class FiveInRowGame {
     
     this.highlightWinningCells();
     this.updateUI();
-    this.celebrateWin(winner);
+    this.celebrateWin();
   }
 
   private handleDraw(): void {
@@ -343,7 +343,7 @@ class FiveInRowGame {
     }
   }
 
-  private celebrateWin(winner: string): void {
+  private celebrateWin(): void {
     // Simple celebration effect
     const celebrationEmojis = ['🎉', '🎊', '🏆', '✨', '🌟', '🔥'];
     

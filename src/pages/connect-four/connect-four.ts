@@ -378,7 +378,7 @@ class ConnectFourGame {
     
     this.highlightWinningCoins();
     this.updateUI();
-    this.celebrateWin(winner);
+    this.celebrateWin();
   }
 
   private handleDraw(): void {
@@ -439,7 +439,7 @@ class ConnectFourGame {
     }
   }
 
-  private celebrateWin(winner: string): void {
+  private celebrateWin(): void {
     // Coin celebration effect
     const celebrationCoins = ['🪙', '💰', '🏆', '✨', '🌟'];
     
