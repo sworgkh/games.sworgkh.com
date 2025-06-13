@@ -1,0 +1,21 @@
+version: 1
+frontend:
+  phases:
+    preBuild:
+      commands:
+        - echo "Installing dependencies..."
+        - npm config set registry https://registry.npmjs.org/
+        - npm config set legacy-peer-deps true
+        - rm -rf node_modules package-lock.json
+        - npm install
+    build:
+      commands:
+        - echo "Building..."
+        - npm run build
+  artifacts:
+    baseDirectory: dist
+    files:
+      - '**/*'
+  cache:
+    paths:
+      - node_modules/**/* 

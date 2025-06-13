@@ -14,7 +14,10 @@
   "devDependencies": {
     "@types/node": "^20.0.0",
     "typescript": "^5.0.0",
-    "vite": "^6.3.5"
+    "vite": "^5.1.4"
+  },
+  "resolutions": {
+    "rollup": "3.29.4"
   },
   "keywords": [
     "games",
