@@ -10,11 +10,16 @@
     "clean": "rm -rf dist"
   },
   "devDependencies": {
+    "@types/node": "^20.0.0",
     "typescript": "^5.0.0",
-    "vite": "^5.0.0",
-    "@types/node": "^20.0.0"
+    "vite": "^6.3.5"
   },
-  "keywords": ["games", "typescript", "html", "css"],
+  "keywords": [
+    "games",
+    "typescript",
+    "html",
+    "css"
+  ],
   "author": "",
   "license": "MIT"
-} 
+}
