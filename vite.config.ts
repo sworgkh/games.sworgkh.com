@@ -19,6 +19,7 @@ export default defineConfig({
         main: resolve(__dirname, 'src/pages/home/index.html'),
         'tic-tac-toe': resolve(__dirname, 'src/pages/tic-tac-toe/index.html'),
         'five-in-row': resolve(__dirname, 'src/pages/five-in-row/index.html'),
+        'connect-four': resolve(__dirname, 'src/pages/connect-four/index.html'),
         'language-cards': resolve(__dirname, 'src/pages/language-cards/index.html')
       }
     }

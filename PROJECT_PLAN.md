@@ -146,10 +146,11 @@ abc-game/
 ## 🎉 Project Completed!
 
 All games are fully implemented with:
-- **Home Page**: Beautiful landing page with game cards
+- **Home Page**: Beautiful landing page with 4 game cards
 - **Tic Tac Toe**: Classic 3x3 game with score tracking
+- **Five in Row**: Advanced 15x15 game with undo and coordinates  
+- **Connect Four**: Gravity-based coin dropping with animations
 - **Language Cards**: English, Hebrew, and Russian alphabets with phonetics
-- **Five in Row**: Advanced 15x15 game with undo and coordinates
 - **Shared Systems**: Reusable utilities, theme, and components
 - **Responsive Design**: Works on desktop, tablet, and mobile
 - **Accessibility**: Full keyboard navigation and screen reader support

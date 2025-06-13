@@ -7,7 +7,7 @@ interface GameCardData {
   title: string;
   description: string;
   href: string;
-  color: 'primary' | 'secondary' | 'accent';
+  color: 'primary' | 'secondary' | 'accent' | 'warning';
   icon?: string;
 }
 
@@ -75,6 +75,7 @@ export class GameCard extends HTMLElement {
         overflow: hidden;
         transition: all var(--transition-normal);
         border: 2px solid transparent;
+        width: 100%;
       }
 
       .game-card:hover {
@@ -94,6 +95,10 @@ export class GameCard extends HTMLElement {
         background: linear-gradient(135deg, var(--color-accent) 0%, rgba(200, 230, 201, 0.8) 100%);
       }
 
+      .game-card--warning {
+        background: linear-gradient(135deg, var(--color-warning) 0%, rgba(255, 204, 188, 0.8) 100%);
+      }
+
       .game-card__icon {
         font-size: var(--font-size-3xl);
         margin-bottom: var(--spacing-sm);
@@ -106,6 +111,7 @@ export class GameCard extends HTMLElement {
         flex-direction: column;
         justify-content: center;
         padding: var(--spacing-sm);
+        width: 100%;
       }
 
       .game-card__title {
@@ -124,6 +130,7 @@ export class GameCard extends HTMLElement {
 
       .game-card__action {
         margin-top: var(--spacing-sm);
+        width: 100%;
       }
 
       .game-card .btn {
@@ -154,6 +161,62 @@ export class GameCard extends HTMLElement {
           font-size: var(--font-size-sm);
         }
       }
+
+      @media (max-width: 480px) {
+        .game-card {
+          min-height: 180px;
+          padding: var(--spacing-sm);
+        }
+        
+        .game-card__icon {
+          font-size: var(--font-size-2xl);
+          margin-bottom: var(--spacing-xs);
+        }
+        
+        .game-card__title {
+          font-size: var(--font-size-base);
+          margin-bottom: var(--spacing-xs);
+        }
+        
+        .game-card__description {
+          font-size: calc(var(--font-size-sm) - 0.1rem);
+        }
+        
+        .game-card__action {
+          margin-top: var(--spacing-xs);
+        }
+        
+        .game-card .btn {
+          padding: var(--spacing-xs) var(--spacing-sm);
+        }
+      }
+
+      /* Screen rotation support */
+      @media screen and (orientation: landscape) and (max-height: 600px) {
+        .game-card {
+          min-height: 150px;
+          flex-direction: row;
+          text-align: left;
+          padding: var(--spacing-xs);
+        }
+        
+        .game-card__icon {
+          margin-bottom: 0;
+          margin-right: var(--spacing-sm);
+        }
+        
+        .game-card__content {
+          align-items: flex-start;
+          padding: var(--spacing-xs);
+        }
+        
+        .game-card__action {
+          display: flex;
+          align-items: center;
+          margin-top: 0;
+          margin-left: var(--spacing-sm);
+        }
+      }
     `;
     document.head.appendChild(style);
   }
@@ -162,6 +225,8 @@ export class GameCard extends HTMLElement {
     this.addEventListener('click', this.handleClick.bind(this));
     this.addEventListener('keydown', this.handleKeydown.bind(this));
     this.setAttribute('tabindex', '0');
+    this.setAttribute('role', 'button');
+    this.setAttribute('aria-label', `Play ${this.data.title}`);
   }
 
   private handleClick(): void {
